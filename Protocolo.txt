@@ -1,0 +1,36 @@
+Protocolo SH - Say Hello
+
+- Não é case sensitive
+
+
+Códigos de status:
+• O Código é padronizado, a mensagem não (pode, ou não, haver mensagem)
+
+200 +OK → Indica comando bem sucedido
+400 -ERR → Indica erro
+
+
+Métodos:
+
+• JOIN
+Entra em um chat, recebe um parâmetro: o nome do chat que se deseja entrar
+Sintaxe > JOIN nome do chat
+(o nome do chat pode ter espaço)
+
+• CREATE
+Cria um chat/insere um chat na árvore de chats no servidor, recebe um parâmetro: o nome do chat que se deseja criar
+Sintaxe > CREATE nome do chat
+(o nome do chat pode ter espaço)
+
+• DELETE
+Deleta um chat/remove um chat da árvore de chats no servidor, recebe um parâmetro: o nome do chat que se deseja deletar
+Sintaxe > DELETE nome do chat
+(o nome do chat pode ter espaço)
+
+• CHATS
+Imprime a árvore de chats usando o método preordem, não recebe parâmetros
+Sintaxe > CHATS
+
+• QUIT
+Ecerra a conexão com o servidor, não recebe parâmetros
+Sintaxe > QUIT
