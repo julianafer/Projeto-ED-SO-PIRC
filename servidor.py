@@ -18,7 +18,7 @@ servidor.bind(origem)
 
 arvore = AVLTree()
 lista = Lista()
-lista.insere_no_inicio('Usuarios:\n')
+lista.insere_no_inicio('Usuarios online:')
 semaforoA = Semaphore(1)
 semaforoL = Semaphore(1)
 
@@ -95,9 +95,20 @@ def protocolo(entrada, cliente):
                 msg = f'{style.RED}400 -ERR servidor ainda não possui chats{style.RESET}'
                 servidor.sendto(msg.encode(), cliente)
             else:
-                msg = f'{style.GREEN}200 +OK\n{style.RESET}'
+                msg = f'{style.GREEN}200 +OK{style.RESET}'
                 preordem = arvore.preordem()
                 out = f'{msg}\n{preordem}'
+                servidor.sendto(out.encode(), cliente)
+
+        
+        elif comando == 'MEMBERS':
+            if lista.cabeca.prox is None:
+                msg = f'{style.RED}400 -ERR servidor ainda não possui chats{style.RESET}'
+                servidor.sendto(msg.encode(), cliente)
+            else:
+                msg = f'{style.GREEN}200 +OK{style.RESET}'
+                str = lista.__str__()
+                out = f'{msg}\n{str}'
                 servidor.sendto(out.encode(), cliente)
 
 
@@ -106,7 +117,7 @@ def protocolo(entrada, cliente):
             for i in entrada.split()[1:]:
                 msg += f'{i} '
             print(f'{globals.usuario} ( {globals.chat}) → {msg}')
-            out = ''
+            out = f'{style.GREEN}200 +OK mensagem enviada{style.RESET}'
             servidor.sendto(out.encode(), cliente)
 
 

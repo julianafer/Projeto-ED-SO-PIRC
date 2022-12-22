@@ -27,9 +27,18 @@ Deleta um chat/remove um chat da árvore de chats no servidor, recebe um parâme
 Sintaxe > DELETE nome do chat
 (o nome do chat pode ter espaço)
 
+• MSG
+Manda sua mensagem no servidor (a mensagem também indica o chat que você está)
+Sintaxe > MSG minha mensagem
+(a mensagem pode ter espaço)
+
 • CHATS
 Imprime a árvore de chats usando o método preordem, não recebe parâmetros
 Sintaxe > CHATS
+
+• MEMBERS
+Imprime a lista de pessoas online e o chat que as pessoas estão, não recebe parâmetros
+Sintaxe > MEMBERS
 
 • QUIT
 Ecerra a conexão com o servidor, não recebe parâmetros

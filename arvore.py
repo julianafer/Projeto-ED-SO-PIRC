@@ -96,7 +96,7 @@ class AVLTree(object):
         if root:
             try:
                 nome = str(root.value)
-                res += f'{nome}\n'
+                res += f'\n• {nome}'
             except:
                 pass
             aux = f'{self.__preordem(root.left)}'

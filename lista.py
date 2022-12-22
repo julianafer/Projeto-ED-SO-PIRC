@@ -80,7 +80,6 @@ class Lista:
                 cursor = cursor.prox
         return array
 
-
     def remover(self, valor):
         if self.cabeca.user == valor:
             self.cabeca = self.cabeca.prox
@@ -97,9 +96,21 @@ class Lista:
         self.tamanho -= 1
 
     def __str__(self) -> str:
+        nada = ''
         cursor = self.cabeca
         str = ''
         while cursor:
-            str += f'• {cursor.user}\n'
+            usuario = cursor.user.split('+')
+            if usuario[0] == 'user':
+                usuario = usuario[1]
+            else:
+                usuario = usuario[0]
+            if usuario == 'Usuarios online:':
+                str += f'\n{usuario}\n'
+            else:
+                if usuario in str:
+                    pass
+                else:
+                    str += f'\n• {usuario} ( {cursor.chat if cursor.chat is not None else nada})'
             cursor = cursor.prox
         return str
